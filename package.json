@@ -1,0 +1,61 @@
+{
+  "name": "macoolka-fs",
+  "version": "0.5.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "fastspeeed@gmail.com",
+  "scripts": {
+    "reinstall": "rm -rf node_modules/ && yarn install",
+    "clean": "rm -rf lib/ coverage/ ",
+    "lint": "tslint -p tsconfig.json",
+    "lint:fix": "tslint -p tsconfig.json --fix",
+    "test": "jest",
+    "build": "rm -rf lib/ && tsc ",
+    "precommit": "npm run lint",
+    "prepush": "npm run test",
+    "all": "npm run clean && tsc && jest  --coverage && tslint -p tsconfig.json",
+    "coverage": "rimraf coverage && jest  --coverage"
+  },
+  "keywords": [
+    "macoolka",
+    "typescript",
+    "fs",
+    "functional-programming"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(./src/*|\\.(test|spec))\\.(ts|tsx)$"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macoolka/macoolka-fs.git"
+  },
+  "homepage": "https://github.com/macoolka/macoolka-fs",
+  "dependencies": {
+    "fast-glob": "^3.0.4",
+    "fp-ts": "^2.0.2",
+    "macoolka-stream": "^0.2.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/mkdirp": "^0.5.2",
+    "@types/node": "^12.7.2",
+    "@types/rimraf": "^2.0.2",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.6.2"
+  }
+}
