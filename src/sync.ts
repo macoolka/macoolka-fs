@@ -12,8 +12,6 @@ import * as fs from 'fs';
 import * as _path from 'path';
 import { pipe } from 'fp-ts/lib/pipeable';
 import * as A from 'fp-ts/lib/Array';
-import { Stream } from 'stream';
-import { isStream } from 'macoolka-stream';
 
 /**
  * Create a folder.
@@ -116,12 +114,12 @@ export const glob = ({ path, options }: GlobWhere): string[] =>
  * @since 0.2.0
  */
 export const createFile = (
-    { path, data, encoding }: { path: string, data: string | Buffer | Stream, encoding?: string }): void => {
+    { path, data, encoding }: { path: string, data: string | Buffer, encoding?: string }): void => {
     createFolder(_path.dirname(path));
-    isStream(data)
-        ? data.pipe(fs.createWriteStream(path, { encoding }))
-        : fs.writeFileSync(path, data, { encoding });
+
+    fs.writeFileSync(path, data, { encoding });
 };
+
 /**
  * Delete a file
  * @desczh
@@ -190,7 +188,7 @@ export const file = (path: string): {
  * @since 0.2.0
  */
 export const updateFile = ({ data: { path, data, encoding }, where }:
-    { data: { path?: string, data?: string | Buffer | Stream, encoding?: string }, where: string }): void => {
+    { data: { path?: string, data?: string | Buffer, encoding?: string }, where: string }): void => {
     if (data) {
         deleteFile(where);
         createFile({ data, path: where, encoding });

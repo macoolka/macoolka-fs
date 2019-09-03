@@ -1,6 +1,6 @@
 ---
 title: sync.ts
-nav_order: 2
+nav_order: 3
 parent: 模块
 ---
 
@@ -61,7 +61,7 @@ v0.2.0 中添加
 ```ts
 
 export const createFile = (
-    { path, data, encoding }: { path: string, data: string | Buffer | Stream, encoding?: string }): void => ...
+    { path, data, encoding }: { path: string, data: string | Buffer, encoding?: string }): void => ...
 
 ```
 
@@ -226,7 +226,7 @@ v0.2.0 中添加
 ```ts
 
 export const updateFile = ({ data: { path, data, encoding }, where }:
-    { data: { path?: string, data?: string | Buffer | Stream, encoding?: string }, where: string }): void => ...
+    { data: { path?: string, data?: string | Buffer, encoding?: string }, where: string }): void => ...
 
 ```
 

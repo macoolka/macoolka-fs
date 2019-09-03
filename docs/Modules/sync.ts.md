@@ -1,6 +1,6 @@
 ---
 title: sync.ts
-nav_order: 2
+nav_order: 3
 parent: Modules
 ---
 
@@ -61,7 +61,7 @@ Write a file
 ```ts
 
 export const createFile = (
-    { path, data, encoding }: { path: string, data: string | Buffer | Stream, encoding?: string }): void => ...
+    { path, data, encoding }: { path: string, data: string | Buffer, encoding?: string }): void => ...
 
 ```
 
@@ -228,7 +228,7 @@ Replace content when data isn't undefined
 ```ts
 
 export const updateFile = ({ data: { path, data, encoding }, where }:
-    { data: { path?: string, data?: string | Buffer | Stream, encoding?: string }, where: string }): void => ...
+    { data: { path?: string, data?: string | Buffer, encoding?: string }, where: string }): void => ...
 
 ```
 
